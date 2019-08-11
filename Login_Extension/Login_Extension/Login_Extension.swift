@@ -8,8 +8,8 @@
 
 import CTMediator
 public extension CTMediator{
-    @objc func getLoginModule(_ callBack:((String)->Void)?)->UIViewController?{
-        let params:[AnyHashable:Any] = ["login_callback":callBack ?? ((String)->Void).self ,kCTMediatorParamsKeySwiftTargetModuleName:"Login"]
+    @objc func getLoginModule(_ callBack:(([String:Any])->Void)?)->UIViewController?{
+        let params:[AnyHashable:Any] = ["login_callback":callBack ?? (([String:Any])->Void).self ,kCTMediatorParamsKeySwiftTargetModuleName:"Login"]
         if let target = performTarget("Login", action: "goLoginVC", params: params, shouldCacheTarget: false) as? UIViewController{
             return target
         }
